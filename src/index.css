@@ -1,0 +1,1342 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   THE KEEPSAKE JOURNAL — DESIGN SYSTEM
+   Handcrafted Art Direction for Tejasree ("Madamji")
+   Refined, warm, editorial, personal, and cinematic.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Default: Warm Editorial Ivory (Handmade Paper & Linen) */
+  --bg-primary:       #FAF7F2;
+  --bg-secondary:     #F3ECE2;
+  --bg-surface:       #FFFFFF;
+  --bg-surface-soft:  #F7F3EB;
+  --bg-surface-raised:#FFFFFF;
+  --bg-paper:         #FCFBF7;
+
+  /* Typography Colors */
+  --text-primary:     #241B18;
+  --text-secondary:   #68574F;
+  --text-muted:       #96857C;
+  --text-inverted:    #FAF7F2;
+
+  /* Intentional Editorial Accents (Restrained, Warm, Timeless) */
+  --accent-burgundy:  #872439;
+  --accent-burgundy-dark: #6D1B2D;
+  --accent-burgundy-light: #F4E8EB;
+  --accent-gold:      #B3842C;
+  --accent-gold-soft: #F7EEDC;
+  --accent-sage:      #556852;
+  --accent-sage-soft: #EDF3EB;
+  --accent-terracotta:#A85842;
+  --accent-terracotta-soft: #F9ECE8;
+
+  /* Architectural Borders & Rules */
+  --border-subtle:    rgba(135, 36, 57, 0.12);
+  --border-medium:    rgba(135, 36, 57, 0.22);
+  --border-paper:     rgba(104, 87, 79, 0.18);
+  --border-gold:      rgba(179, 132, 44, 0.35);
+
+  /* Shadows (Natural, Soft, Paper-like) */
+  --shadow-subtle:    0 2px 8px rgba(36, 27, 24, 0.04);
+  --shadow-card:      0 8px 24px rgba(36, 27, 24, 0.06), 0 2px 6px rgba(36, 27, 24, 0.03);
+  --shadow-elevated:  0 16px 36px rgba(36, 27, 24, 0.08), 0 4px 12px rgba(36, 27, 24, 0.04);
+  --shadow-deep:      0 24px 50px rgba(36, 27, 24, 0.12);
+
+  /* Radius System (Editorial, Restrained) */
+  --radius-xs:        4px;
+  --radius-sm:        8px;
+  --radius-md:        14px;
+  --radius-lg:        20px;
+  --radius-full:      9999px;
+
+  /* Navigation / Header blur */
+  --nav-bg:           rgba(250, 247, 242, 0.92);
+
+  /* Envelope Theme Tokens */
+  --envelope-back:    #E8DCCB;
+  --envelope-front:   #F5EEE4;
+  --envelope-flap:    #ECE1D1;
+  --envelope-border:  #D5C6B3;
+  --envelope-shadow:  0 12px 32px rgba(36, 27, 24, 0.09);
+}
+
+[data-theme="dark"] {
+  /* Evening / Velvet Espresso Edition */
+  --bg-primary:       #141112;
+  --bg-secondary:     #1C1719;
+  --bg-surface:       #221D20;
+  --bg-surface-soft:  #1E191C;
+  --bg-surface-raised:#292327;
+  --bg-paper:         #231D20;
+
+  --text-primary:     #F4EFEA;
+  --text-secondary:   #C4B6AF;
+  --text-muted:       #8A7D76;
+  --text-inverted:    #141112;
+
+  --accent-burgundy:  #D9697E;
+  --accent-burgundy-dark: #BA4E62;
+  --accent-burgundy-light: rgba(217, 105, 126, 0.15);
+  --accent-gold:      #DCB061;
+  --accent-gold-soft: rgba(220, 176, 97, 0.15);
+  --accent-sage:      #8CA588;
+  --accent-sage-soft: rgba(140, 165, 136, 0.15);
+  --accent-terracotta:#E0856E;
+  --accent-terracotta-soft: rgba(224, 133, 110, 0.15);
+
+  --border-subtle:    rgba(220, 176, 97, 0.14);
+  --border-medium:    rgba(220, 176, 97, 0.25);
+  --border-paper:     rgba(196, 182, 175, 0.15);
+  --border-gold:      rgba(220, 176, 97, 0.35);
+
+  --shadow-subtle:    0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-card:      0 8px 30px rgba(0, 0, 0, 0.45);
+  --shadow-elevated:  0 18px 45px rgba(0, 0, 0, 0.55);
+  --shadow-deep:      0 26px 60px rgba(0, 0, 0, 0.7);
+
+  --nav-bg:           rgba(20, 17, 18, 0.92);
+
+  /* Envelope Theme Tokens (Dark Edition) */
+  --envelope-back:    #241C1E;
+  --envelope-front:   #2C2326;
+  --envelope-flap:    #352B2F;
+  --envelope-border:  rgba(220, 176, 97, 0.28);
+  --envelope-shadow:  0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Base Reset & Foundation ─────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+section {
+  scroll-margin-top: 5.5rem;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  background-image: radial-gradient(var(--border-subtle) 0.75px, transparent 0.75px);
+  background-size: 24px 24px;
+}
+
+/* ── Typography Classes ─────────────────────────────────────── */
+.font-display {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-reading {
+  font-family: 'Crimson Text', Georgia, serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Headings ───────────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+/* ── Editorial Section Headers ──────────────────────────────── */
+.section-wrapper {
+  padding: 6.5rem 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (max-width: 640px) {
+  .section-wrapper {
+    padding: 4.5rem 1.25rem;
+  }
+}
+
+.chapter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.9rem;
+  background: var(--accent-burgundy-light);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-burgundy);
+  margin-bottom: 1rem;
+}
+
+.chapter-badge .bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-gold);
+}
+
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  max-width: 580px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.6;
+}
+
+/* ── Navigation ─────────────────────────────────────────────── */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2.5rem;
+  background: var(--nav-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .nav-bar {
+    padding: 0.9rem 1.25rem;
+  }
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav-monogram {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-burgundy);
+  color: #FAF7F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: 1px solid var(--accent-gold);
+  box-shadow: var(--shadow-subtle);
+}
+
+.nav-brand-text {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.nav-brand-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-left: 0.2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding: 0.4rem 0.2rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--accent-burgundy);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+  transform-origin: right;
+}
+
+.nav-links a:hover {
+  color: var(--accent-burgundy);
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Elegant Sun/Moon Theme Toggle */
+.theme-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.theme-switch:hover {
+  color: var(--accent-burgundy);
+  border-color: var(--accent-burgundy);
+  transform: translateY(-1px);
+}
+
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  cursor: pointer;
+  padding: 8px;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-medium);
+  padding: 1.5rem;
+  z-index: 99;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--shadow-card);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-menu a {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+}
+
+/* ── Editorial Buttons ───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--accent-burgundy);
+  color: #FAF7F2;
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.8rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-primary:hover {
+  background: var(--accent-burgundy-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+  color: #FAF7F2;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1.6rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-burgundy);
+  color: var(--accent-burgundy);
+  background: var(--accent-burgundy-light);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 0.82rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-ghost:hover {
+  border-color: var(--accent-burgundy);
+  color: var(--accent-burgundy);
+  background: var(--accent-burgundy-light);
+}
+
+/* ── Editorial Paper Card Surfaces ──────────────────────────── */
+.paper-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.paper-card-inset {
+  border: 1px solid var(--border-subtle);
+  margin: 4px;
+  border-radius: calc(var(--radius-md) - 4px);
+}
+
+/* ── Hero Keepsake Cover ────────────────────────────────────── */
+.hero-frame {
+  max-width: 840px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4.5rem 2rem 3rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .hero-frame {
+    padding: 3rem 1.25rem 2rem;
+  }
+}
+
+.hero-corner-ornament {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--accent-gold);
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.hero-corner-tl { top: 12px; left: 12px; border-top: 1.5px solid; border-left: 1.5px solid; }
+.hero-corner-tr { top: 12px; right: 12px; border-top: 1.5px solid; border-right: 1.5px solid; }
+.hero-corner-bl { bottom: 12px; left: 12px; border-bottom: 1.5px solid; border-left: 1.5px solid; }
+.hero-corner-br { bottom: 12px; right: 12px; border-bottom: 1.5px solid; border-right: 1.5px solid; }
+
+/* ── Elegant Countdown Block ─────────────────────────────────── */
+.countdown-container {
+  display: flex;
+  gap: 0.85rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.countdown-tile {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.2rem;
+  min-width: 78px;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  position: relative;
+}
+
+.countdown-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+
+.countdown-value {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.countdown-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+}
+
+/* ── Chapter 1: The Stationery Envelope Card ─────────────────── */
+.envelope-stage {
+  max-width: 540px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keepsake-envelope {
+  width: 260px;
+  height: 170px;
+  background: #F5EEE4;
+  border: 1.5px solid #D8C7B5;
+  border-radius: var(--radius-sm);
+  position: relative;
+  box-shadow: var(--shadow-card);
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .keepsake-envelope {
+  background: #262022;
+  border-color: #42363A;
+}
+
+.keepsake-envelope:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-elevated);
+}
+
+.envelope-fold-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: linear-gradient(175deg, #EFE3D4, #E5D5C1);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  border-bottom: 1.5px solid #D8C7B5;
+  z-index: 2;
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+[data-theme="dark"] .envelope-fold-top {
+  background: linear-gradient(175deg, #2E272A, #272124);
+  border-bottom-color: #42363A;
+}
+
+.keepsake-envelope.opened .envelope-fold-top {
+  transform: rotateX(180deg);
+}
+
+.wax-seal {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--accent-burgundy);
+  border: 1.5px solid var(--accent-gold);
+  color: #FAF7F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  z-index: 3;
+  box-shadow: 0 3px 8px rgba(135, 36, 57, 0.35);
+  transition: transform 0.3s ease;
+}
+
+.keepsake-envelope:hover .wax-seal {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.quote-parchment {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-left: 3px solid var(--accent-burgundy);
+  border-radius: var(--radius-sm);
+  padding: 1.6rem 2rem;
+  margin: 1.5rem 0;
+  text-align: left;
+  box-shadow: var(--shadow-subtle);
+}
+
+/* ── Chapter 2: Transit Keepsake & Bilingual Cards ──────────── */
+.transit-pass {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.transit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--border-medium);
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.transit-code {
+  font-family: 'Inter', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--accent-gold);
+}
+
+.language-flashcard {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-sm);
+  padding: 1.4rem;
+  transition: all 0.25s ease;
+}
+
+.language-flashcard:hover {
+  border-color: var(--border-medium);
+}
+
+/* ── Chapter 3: Field Guide Timeline ────────────────────────── */
+.timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 520px;
+  width: 100%;
+}
+
+.timeline-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-sm);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.25s ease;
+}
+
+.timeline-entry:hover {
+  border-color: var(--border-medium);
+  transform: translateX(3px);
+}
+
+.timeline-time-badge {
+  font-family: 'Inter', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-burgundy);
+  background: var(--accent-burgundy-light);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+/* ── Chapter 4: Origami Rabbit Apology ───────────────────────── */
+.origami-canvas {
+  max-width: 440px;
+  width: 100%;
+  text-align: center;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.origami-fold-btn {
+  width: 140px;
+  height: 140px;
+  background: #FCF9F0;
+  border: 1.5px solid #DDD1BF;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .origami-fold-btn {
+  background: #252023;
+  border-color: #40363B;
+}
+
+.origami-fold-btn:hover {
+  transform: translateY(-3px) rotate(1deg);
+  box-shadow: var(--shadow-elevated);
+}
+
+.origami-crease {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, transparent 50%, rgba(135, 36, 57, 0.15) 50%);
+}
+
+/* ── Chapter 5: WhatsApp Transcript ──────────────────────────── */
+.chat-dossier {
+  max-width: 480px;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+.chat-dossier-header {
+  padding: 1.1rem 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-surface-soft);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chat-bubble {
+  padding: 0.85rem 1.15rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  max-width: 82%;
+  line-height: 1.5;
+  box-shadow: var(--shadow-subtle);
+}
+
+.chat-bubble-her {
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  border-top-left-radius: 2px;
+  align-self: flex-start;
+}
+
+.chat-bubble-me {
+  background: var(--accent-burgundy-light);
+  border: 1px solid var(--border-medium);
+  color: var(--text-primary);
+  border-top-right-radius: 2px;
+  align-self: flex-end;
+}
+
+/* ── Chapter 6: The Confidential Memo ────────────────────────── */
+.confidential-memo {
+  max-width: 520px;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-sm);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  font-family: 'Inter', sans-serif;
+}
+
+.stamp-classified {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  padding: 0.35rem 0.85rem;
+  border: 2px solid var(--accent-burgundy);
+  border-radius: 3px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-burgundy);
+  transform: rotate(6deg);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.redacted-bar {
+  background: var(--text-primary);
+  color: transparent;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+  user-select: none;
+}
+
+/* ── Chapter 7: The Clinical Assessment ──────────────────────── */
+.clinical-card {
+  max-width: 520px;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.health-track {
+  height: 6px;
+  background: var(--bg-surface-soft);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.health-fill {
+  height: 100%;
+  border-radius: var(--radius-full);
+  background: var(--accent-burgundy);
+}
+
+/* ── Chapter 8: October 3 Scrapbook Spread ──────────────────── */
+.scrapbook-spread {
+  max-width: 720px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (max-width: 680px) {
+  .scrapbook-spread {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Chapter 9: The Responsibility Ledger ────────────────────── */
+.responsibility-ledger {
+  max-width: 540px;
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+}
+
+.ledger-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.9rem 1.25rem;
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.6rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ledger-btn:hover {
+  border-color: var(--accent-burgundy);
+  background: var(--accent-burgundy-light);
+  transform: translateX(2px);
+}
+
+/* ── Celebration Centerpiece (16 October) ────────────────────── */
+.celebration-altar {
+  max-width: 780px;
+  width: 100%;
+  text-align: center;
+  padding: 4.5rem 2rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
+  position: relative;
+  overflow: hidden;
+}
+
+.celebration-altar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-gold), var(--accent-burgundy), var(--accent-gold));
+}
+
+/* ── Madamji's Bistro Menu ───────────────────────────────────── */
+.bistro-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.bistro-card:hover {
+  border-color: var(--border-medium);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card);
+}
+
+.bistro-card.mandatory {
+  border-color: var(--accent-gold);
+  background: var(--bg-surface-soft);
+}
+
+.bistro-tag {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  background: var(--accent-gold-soft);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-top: 0.6rem;
+}
+
+/* ── Memory Mounts & Gallery ─────────────────────────────────── */
+.photo-mount {
+  background: #FFFFFF;
+  border: 1px solid #E2D7C8;
+  padding: 0.8rem 0.8rem 1.6rem;
+  border-radius: var(--radius-xs);
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .photo-mount {
+  background: #252023;
+  border-color: #40363B;
+}
+
+.photo-mount:hover {
+  transform: translateY(-4px) rotate(0deg);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--accent-gold);
+}
+
+.photo-matting {
+  aspect-ratio: 1;
+  background: var(--bg-surface-soft);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.photo-mount-caption {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-top: 0.8rem;
+}
+
+/* ── The Portrait (Best Photo) ───────────────────────────────── */
+.portrait-frame {
+  max-width: 420px;
+  width: 100%;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border: 2px solid var(--accent-gold);
+  border-radius: var(--radius-md);
+  padding: 1rem 1rem 2rem;
+  box-shadow: var(--shadow-deep);
+  position: relative;
+  text-align: center;
+}
+
+[data-theme="dark"] .portrait-frame {
+  background: #262023;
+}
+
+.portrait-nameplate {
+  display: inline-block;
+  padding: 0.4rem 1.2rem;
+  background: var(--accent-gold-soft);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-xs);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: var(--accent-gold);
+  margin-top: 1.2rem;
+}
+
+/* ── Parlor Game Hub ─────────────────────────────────────────── */
+.game-capsule {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-paper);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  width: 100%;
+}
+
+.game-capsule:hover {
+  border-color: var(--accent-burgundy);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-elevated);
+}
+
+/* ── Memory Match Game Cards ─────────────────────────────────── */
+.parlor-match-card {
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease;
+  border: 1px solid var(--border-paper);
+  position: relative;
+}
+
+.parlor-match-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.parlor-match-card .card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parlor-match-card .face-down {
+  background: var(--accent-burgundy);
+  border: 1px solid var(--accent-gold);
+  color: #FAF7F2;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.2rem;
+}
+
+.parlor-match-card .face-up {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-medium);
+  transform: rotateY(180deg);
+  font-size: 1.8rem;
+}
+
+/* ── The Handcrafted Letter ──────────────────────────────────── */
+.letter-parchment {
+  max-width: 680px;
+  width: 100%;
+  background: #FCFAF6;
+  border: 1px solid #DED4C5;
+  border-radius: var(--radius-xs);
+  padding: 3.5rem 4rem;
+  box-shadow: var(--shadow-deep);
+  position: relative;
+}
+
+[data-theme="dark"] .letter-parchment {
+  background: #252023;
+  border-color: #483C42;
+}
+
+@media (max-width: 640px) {
+  .letter-parchment {
+    padding: 2.2rem 1.5rem;
+  }
+}
+
+.letter-top-crest {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  color: var(--accent-gold);
+  font-size: 1.2rem;
+}
+
+.letter-salutation {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-burgundy);
+  margin-bottom: 1.6rem;
+}
+
+.letter-prose {
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 1.18rem;
+  color: var(--text-primary);
+  line-height: 1.95;
+}
+
+.letter-prose p {
+  margin-bottom: 1.4rem;
+}
+
+.letter-valediction {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--accent-burgundy);
+  text-align: right;
+  margin-top: 2rem;
+}
+
+/* ── Confetti Style (Warm Foil & Petals) ──────────────────────── */
+@keyframes warm-confetti-drop {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+.warm-confetti-piece {
+  position: fixed;
+  top: -20px;
+  pointer-events: none;
+  z-index: 9999;
+  animation: warm-confetti-drop linear forwards;
+}
+
+/* ── Scrollbar Polish ────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-burgundy);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LOCKED PAGE TOAST & DEVELOPER BYPASS CONTROLS
+   ═══════════════════════════════════════════════════════════════ */
+
+.lock-toast {
+  position: fixed;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-surface-raised);
+  color: var(--text-primary);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-full);
+  padding: 0.7rem 1.4rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-deep);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  backdrop-filter: blur(12px);
+  max-width: 90vw;
+  text-align: center;
+}
+
+/* ── Developer Mode Floating Pill (When Unlocked) ────────────── */
+.dev-floating-pill {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  background: var(--bg-surface-raised);
+  border: 1px solid var(--accent-gold);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-elevated);
+  z-index: 999;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.76rem;
+  color: var(--text-primary);
+  backdrop-filter: blur(8px);
+}
+
+.dev-relock-btn {
+  background: var(--accent-burgundy);
+  color: #FAF7F2;
+  border: none;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.dev-relock-btn:hover {
+  background: var(--accent-burgundy-dark);
+  transform: scale(1.04);
+}
+
